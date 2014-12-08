@@ -1,12 +1,7 @@
 open Memory
 
 (* 
-	The first function copy obj copies the object at addr to free, 
-	unless it is a forwarding pointer. In the first case, it returns 
-	an updated free pointer, and the new 	address of the object. 
-	It must copy the whole object as of its size. If the object is a 
-	forwarding pointer, it returns the free pointer unchanged and 
-	value of the forwarding pointer.
+	The first function copy obj copies the object at addr to free, unless it is a forwarding pointer. In the first case, it returns an updated free pointer, and the new 	address of the object. It must copy the whole object as of its size. If the object is a forwarding pointer, it returns the free pointer unchanged and value of the 	forwarding pointer.
 
 	Copy an object to the To-space or return its address. Modify the
    object in the From-space to contain a forwarding pointer to the new
