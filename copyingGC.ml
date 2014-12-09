@@ -20,9 +20,9 @@ open Memory
    pointer, the second is the new address of the object. 
 
 *)
-let copy_obj (free : int) (addr : int) = raise Missing
-
-
+let copy_obj (free : int) (addr : int) =   (* Just for one object? Copies an object to the To-space *)
+	match (free : int) with
+	| _ -> 1;;
 (* Scan To-space, copy all referenced objects to the To-space and
    update references in objects. Recurse until the free pointer is
    identical to the unscanned pointer.
@@ -35,7 +35,7 @@ let copy_obj (free : int) (addr : int) = raise Missing
    scanned.
 
 *)
-let rec scan_tospace (free : int) (unscanned : int) = raise Missing
+let rec scan_tospace (free : int) (unscanned : int) = raise Missing (* Uses copy_obj recursively? *)
 
 
 (* Garbage collect with given root set. Copy all reachable objects in

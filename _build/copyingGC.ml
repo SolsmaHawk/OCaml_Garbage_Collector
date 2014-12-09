@@ -1,7 +1,12 @@
 open Memory
 
 (* 
-	The first function copy obj copies the object at addr to free, unless it is a forwarding pointer. In the first case, it returns an updated free pointer, and the new 	address of the object. It must copy the whole object as of its size. If the object is a forwarding pointer, it returns the free pointer unchanged and value of the 	forwarding pointer.
+	The first function copy obj copies the object at addr to free, 
+	unless it is a forwarding pointer. In the first case, it returns 
+	an updated free pointer, and the new 	address of the object. 
+	It must copy the whole object as of its size. If the object is a 
+	forwarding pointer, it returns the free pointer unchanged and 
+	value of the forwarding pointer.
 
 	Copy an object to the To-space or return its address. Modify the
    object in the From-space to contain a forwarding pointer to the new
@@ -15,9 +20,10 @@ open Memory
    pointer, the second is the new address of the object. 
 
 *)
-let copy_obj (free : int) (addr : int) = raise Missing
-
-
+let copy_obj (free : int) (addr : int) =   (*  *)
+	match (free : int) with
+	
+	| _ -> 1;;
 (* Scan To-space, copy all referenced objects to the To-space and
    update references in objects. Recurse until the free pointer is
    identical to the unscanned pointer.
