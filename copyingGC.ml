@@ -38,9 +38,9 @@ let copy_obj (free : int) (addr : int) =   (* Explicit type casting - Just for o
 	| FwdPointer value -> (free,value)
 	| Object (_, size, _) -> 
 			for num = 1 to size do
-  				ram.(to_space+free+num-1) <- ram.(addr+num-1); ram;
-					ram.(addr+num-1) <- FwdPointer (to_space+free+num-1); ram;
-			done; ((free+size+1),free)
+  				ram.(to_space+free+num-1) <- ram.(addr+num-1);
+					ram.(addr+num-1) <- FwdPointer (to_space+free+num-1);
+			done; ((free+size+1),free) (*returns updated free pointer and new address of the object*)
 	| _ -> (0,0);;
 
 
