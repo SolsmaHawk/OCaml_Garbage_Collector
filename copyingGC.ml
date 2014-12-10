@@ -19,10 +19,42 @@ open Memory
    Return a pair of addresses, the first is the updated [free]
    pointer, the second is the new address of the object. 
 
+
+
+
+
+let rec print_list = function 
+[] -> ()
+| e::l -> pp_print_cell e ; print_string " " ; print_list l;;
 *)
-let copy_obj (free : int) (addr : int) =   (* Just for one object? Copies an object to the To-space *)
-	match (free : int) with
-	| _ -> 1;;
+
+
+(*print_ram();;*)
+
+let to_space = ram_size / 2;;
+
+let copy_obj (free : int) (addr : int) =   (* Explicit type casting - Just for one object? Copies an object to the To-space. How to access To-space? *)
+	match ram.(addr) with
+	| FwdPointer value -> (free,value)
+	| Object (_, size, _) -> 
+			for num = 1 to size do
+  				ram.(to_space+free+num-1) <- ram.(addr+num-1); ram;
+					ram.(addr+num-1) <- FwdPointer (to_space+free+num-1); ram;
+			done; ((free+size+1),free)
+	| _ -> (0,0);;
+
+
+
+(*ram.(to_space+free) <- ram.(addr); ram;
+ram.(addr) <- FwdPointer addr; ram;;
+add forwarding pointer in place of moved object*)
+
+(*ram[to_space+free]=ram[addr]
+ram in ram.(to_space+free) <- ram in ram.(addr); ram;;
+# let a = [| 1; 2 ;3 |] in a.(1) <- 0; a;;
+- : int array = [|1; 0; 3|]
+*)
+	
 (* Scan To-space, copy all referenced objects to the To-space and
    update references in objects. Recurse until the free pointer is
    identical to the unscanned pointer.
@@ -48,4 +80,4 @@ let rec scan_tospace (free : int) (unscanned : int) = raise Missing (* Uses copy
    set.
 *)
 let copy_gc (root_set : int list) = raise Missing
-    
+   (* copy_obj 2 3;;*)

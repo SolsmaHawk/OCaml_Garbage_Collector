@@ -213,6 +213,7 @@ let mem2 =
 
 Array.blit mem2 0 ram 0 31;;
 
+CopyingGC.copy_obj 2 11;;
 let root_set = [0; 2] in
 
 try
@@ -220,7 +221,7 @@ try
   Format.printf "Memory before garbage collection:@.@.%t@." pp_print_ram;
 
   let root_set', free = CopyingGC.copy_gc root_set in
-
+	
   Format.printf "Memory after garbage collection:@.@.%t@." pp_print_ram;
   
   verify_heap 32 free mem2 ram root_set root_set'
