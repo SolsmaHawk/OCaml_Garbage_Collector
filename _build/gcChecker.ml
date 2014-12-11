@@ -213,7 +213,9 @@ let mem2 =
 
 Array.blit mem2 0 ram 0 31;;
 
-CopyingGC.copy_obj 2 11;;
+CopyingGC.copy_obj 0 0;;
+CopyingGC.copy_obj 2 2;;
+
 let root_set = [0; 2] in
 
 try

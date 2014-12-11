@@ -10,9 +10,11 @@
 # Target: copyingGC.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:copyingGC.cmo, file:copyingGC.ml, implem, ocaml, quiet }
 /usr/local/bin/ocamlc.opt -c -o copyingGC.cmo copyingGC.ml
 + /usr/local/bin/ocamlc.opt -c -o copyingGC.cmo copyingGC.ml
-File "copyingGC.ml", line 41, characters 53-56:
+File "copyingGC.ml", line 95, characters 14-34:
 Warning 10: this expression should have type unit.
-File "copyingGC.ml", line 42, characters 59-63:
+File "copyingGC.ml", line 117, characters 2-14:
+Warning 10: this expression should have type unit.
+File "copyingGC.ml", line 118, characters 1-13:
 Warning 10: this expression should have type unit.
 # Target: gcChecker.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:gcChecker.cmo, file:gcChecker.ml, implem, ocaml, quiet }
 /usr/local/bin/ocamlc.opt -c -o gcChecker.cmo gcChecker.ml
@@ -21,9 +23,11 @@ Warning 10: this expression should have type unit.
 # Target: copyingGC.cmx, tags: { compile, extension:cmx, extension:ml, file:copyingGC.cmx, file:copyingGC.ml, implem, native, ocaml, quiet }
 /usr/local/bin/ocamlopt.opt -c -o copyingGC.cmx copyingGC.ml
 + /usr/local/bin/ocamlopt.opt -c -o copyingGC.cmx copyingGC.ml
-File "copyingGC.ml", line 41, characters 53-56:
+File "copyingGC.ml", line 95, characters 14-34:
 Warning 10: this expression should have type unit.
-File "copyingGC.ml", line 42, characters 59-63:
+File "copyingGC.ml", line 117, characters 2-14:
+Warning 10: this expression should have type unit.
+File "copyingGC.ml", line 118, characters 1-13:
 Warning 10: this expression should have type unit.
 # Target: gcChecker.cmx, tags: { compile, extension:cmx, extension:ml, file:gcChecker.cmx, file:gcChecker.ml, implem, native, ocaml, quiet }
 /usr/local/bin/ocamlopt.opt -c -o gcChecker.cmx gcChecker.ml
